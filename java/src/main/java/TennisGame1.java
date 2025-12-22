@@ -31,7 +31,7 @@ public class TennisGame1 implements TennisGame {
         }
         else
         {
-            score = getCurrentResult(score);
+            score = getCurrentResult();
         }
         return score;
     }
@@ -70,15 +70,8 @@ public class TennisGame1 implements TennisGame {
         return m_score1 > m_score2 ? player1 : player2;
     }
 
-    private String getCurrentResult(String score) {
-        int tempScore;
-        for (int i = 1; i<3; i++)
-        {
-            if (i==1) tempScore = m_score1;
-            else { score +="-"; tempScore = m_score2;}
-            score = getPlayerScore(tempScore);
-        }
-        return score;
+    private String getCurrentResult() {
+        return getPlayerScore(m_score1) + "-" + getPlayerScore(m_score2);
     }
 
     private static String getPlayerScore(int tempScore) {

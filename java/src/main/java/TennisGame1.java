@@ -14,7 +14,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     public void wonPoint(String playerName) {
-        if (playerName == "player1")
+        if (playerName.equals(player1))
             m_score1 += 1;
         else
             m_score2 += 1;
@@ -80,9 +80,13 @@ public class TennisGame1 implements TennisGame {
         String score;
         int minusResult = m_score1 - m_score2;
         if (Math.abs(minusResult) == 1)
-            score ="Advantage " + (m_score1 > m_score2 ? player1 : player2);
+            score ="Advantage " + getWinnerPlayerName();
         else
-            score = "Win for " + (m_score1 > m_score2 ? player1 : player2);
+            score = "Win for " + getWinnerPlayerName();
         return score;
+    }
+
+    private String getWinnerPlayerName() {
+        return m_score1 > m_score2 ? player1 : player2;
     }
 }

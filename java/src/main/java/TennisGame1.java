@@ -5,6 +5,8 @@ public class TennisGame1 implements TennisGame {
     private int m_score2 = 0;
     private String player1Name;
     private String player2Name;
+    private final String player1 = "player1";
+    private final String player2 = "player2";
 
     public TennisGame1(String player1Name, String player2Name) {
         this.player1Name = player1Name;
@@ -77,10 +79,10 @@ public class TennisGame1 implements TennisGame {
     private String getTheWinnerPlayer() {
         String score;
         int minusResult = m_score1 - m_score2;
-        if (minusResult==1) score ="Advantage player1";
-        else if (minusResult ==-1) score ="Advantage player2";
-        else if (minusResult>=2) score = "Win for player1";
-        else score ="Win for player2";
+        if (minusResult==1) score ="Advantage " + player1;
+        else if (minusResult ==-1) score ="Advantage " + player2;
+        else if (minusResult>=2) score = "Win for " + player1;
+        else score ="Win for " + player2;
         return score;
     }
 }

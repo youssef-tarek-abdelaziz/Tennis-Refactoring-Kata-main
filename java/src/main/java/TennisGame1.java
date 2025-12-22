@@ -5,8 +5,6 @@ public class TennisGame1 implements TennisGame {
     private int m_score2 = 0;
     private String player1Name;
     private String player2Name;
-    private final String player1 = "player1";
-    private final String player2 = "player2";
 
     public TennisGame1(String player1Name, String player2Name) {
         this.player1Name = player1Name;
@@ -14,7 +12,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     public void wonPoint(String playerName) {
-        if (playerName.equals(player1))
+        if (playerName.equals(player1Name))
             m_score1 += 1;
         else
             m_score2 += 1;
@@ -56,7 +54,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getWinnerPlayerName() {
-        return m_score1 > m_score2 ? player1 : player2;
+        return m_score1 > m_score2 ? player1Name : player2Name;
     }
 
     private String getCurrentResult() {

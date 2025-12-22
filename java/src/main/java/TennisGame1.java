@@ -28,7 +28,7 @@ public class TennisGame1 implements TennisGame {
         }
         else if (m_score1>=4 || m_score2>=4)
         {
-            score = getTheWinnerPlayer();
+            score = getLeadingPlayerResult();
         }
         else
         {
@@ -76,7 +76,7 @@ public class TennisGame1 implements TennisGame {
         return score;
     }
 
-    private String getTheWinnerPlayer() {
+    private String getLeadingPlayerResult() {
         String score;
         int minusResult = m_score1 - m_score2;
         if (Math.abs(minusResult) == 1)

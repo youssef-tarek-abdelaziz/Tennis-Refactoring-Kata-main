@@ -70,7 +70,9 @@ public class TennisGame2 implements TennisGame
         return P1point > P2point ? player1Name : player2Name;
     }
     private boolean isAdvantage() {
-        return (P1point > P2point && P2point >= 3) || (P2point > P1point && P1point >= 3);
+        boolean isMinScoreAtLeastThree = Math.min(P1point, P2point) >= 3;
+        int difference = Math.abs(P1point - P2point);
+        return isMinScoreAtLeastThree && difference == 1;
     }
     private boolean isWin() {
         boolean isFourAtLeast = P1point >= 4 || P2point >= 4;

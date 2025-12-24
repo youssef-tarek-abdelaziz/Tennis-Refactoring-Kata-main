@@ -26,14 +26,18 @@ public class TennisGame2 implements TennisGame
                 score = getPlayerScore(P1point) + "-All";
         }
         else {
-            if(isWin())
-                score = "Win for " + getPlayerName();
-            else if(isAdvantage())
-                score = "Advantage " + getPlayerName();
-            else score = getPlayerScore(P1point) + "-" + getPlayerScore(P2point);
+            score = getCurrentScore();
         }
 
         return score;
+    }
+
+    private String getCurrentScore() {
+        if(isWin())
+            return "Win for " + getPlayerName();
+        else if(isAdvantage())
+            return "Advantage " + getPlayerName();
+        else return getPlayerScore(P1point) + "-" + getPlayerScore(P2point);
     }
 
     private boolean isEqualScores() {

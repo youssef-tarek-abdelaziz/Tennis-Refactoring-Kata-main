@@ -26,16 +26,16 @@ public class TennisGame1 implements TennisGame {
             switch (m_score1)
             {
                 case 0:
-                    score = "Love-All";
+                        score = "Love-All";
                     break;
                 case 1:
-                    score = "Fifteen-All";
+                        score = "Fifteen-All";
                     break;
                 case 2:
-                    score = "Thirty-All";
+                        score = "Thirty-All";
                     break;
                 default:
-                    score = "Deuce";
+                        score = "Deuce";
                     break;
 
             }

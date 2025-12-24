@@ -19,8 +19,7 @@ public class TennisGame2 implements TennisGame
     public String getScore(){
         String score = "";
 
-        if (isEqualScores())
-        {
+        if (isEqualScores()) {
             if(P1point >= 3) {
                 score = "Deuce";
             }
@@ -32,14 +31,9 @@ public class TennisGame2 implements TennisGame
             score = getPlayerScore(P1point) + "-" + getPlayerScore(P2point);
         }
         
-        if (P1point > P2point && P2point >= 3)
-        {
-            score = "Advantage player1";
-        }
-        
-        if (P2point > P1point && P1point >= 3)
-        {
-            score = "Advantage player2";
+        if (!isEqualScores()) {
+            if(isAdvantage())
+                score = "Advantage " + getPlayerName();
         }
         
         if (P1point>=4 && P2point>=0 && (P1point-P2point)>=2)
@@ -83,4 +77,11 @@ public class TennisGame2 implements TennisGame
     private void IncP2Score(){
         P2point++;
     }
+    private String getPlayerName() {
+        return P1point > P2point ? player1Name : player2Name;
+    }
+    private boolean isAdvantage() {
+        return (P1point > P2point && P2point >= 3) || (P2point > P1point && P1point >= 3);
+    }
+
 }

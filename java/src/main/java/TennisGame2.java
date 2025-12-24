@@ -3,8 +3,8 @@ import java.util.Map;
 
 public class TennisGame2 implements TennisGame
 {
-    public int P1point = 0;
-    public int P2point = 0;
+    public int p1point = 0;
+    public int p2point = 0;
     
     private String player1Name;
     private String player2Name;
@@ -17,18 +17,15 @@ public class TennisGame2 implements TennisGame
     }
 
     public String getScore(){
-        String score = "";
-
         if (isEqualScores()) {
             if(isDeuce())
-                score = "Deuce";
+                return  "Deuce";
             else
-                score = getPlayerScore(P1point) + "-All";
+                return getPlayerScore(p1point) + "-All";
         }
         else {
-            score = getCurrentScore();
+            return getCurrentScore();
         }
-        return score;
     }
 
     public void wonPoint(String player) {
@@ -48,7 +45,7 @@ public class TennisGame2 implements TennisGame
     }
 
     private boolean isDeuce() {
-        return P1point >= 3;
+        return p1point >= 3;
     }
 
     private String getCurrentScore() {
@@ -56,37 +53,37 @@ public class TennisGame2 implements TennisGame
             return "Win for " + getPlayerName();
         else if(isAdvantage())
             return "Advantage " + getPlayerName();
-        else return getPlayerScore(P1point) + "-" + getPlayerScore(P2point);
+        else return getPlayerScore(p1point) + "-" + getPlayerScore(p2point);
     }
 
     private boolean isEqualScores() {
-        return P1point == P2point;
+        return p1point == p2point;
     }
 
     private String getPlayerScore(int score) {
         return scores.get(score);
     }
     private void IncP1Score(){
-        P1point++;
+        p1point++;
     }
 
     private void IncP2Score(){
-        P2point++;
+        p2point++;
     }
     private String getPlayerName() {
-        return P1point > P2point ? player1Name : player2Name;
+        return p1point > p2point ? player1Name : player2Name;
     }
     private boolean isAdvantage() {
-        boolean isMinScoreAtLeastThree = Math.min(P1point, P2point) >= 3;
+        boolean isMinScoreAtLeastThree = Math.min(p1point, p2point) >= 3;
         int difference = getAbsDifference();
         return isMinScoreAtLeastThree && difference == 1;
     }
     private boolean isWin() {
-        boolean isFourAtLeast = P1point >= 4 || P2point >= 4;
+        boolean isFourAtLeast = p1point >= 4 || p2point >= 4;
         int difference = getAbsDifference();
         return isFourAtLeast && difference >= 2;
     }
     private int getAbsDifference() {
-        return Math.abs(P1point - P2point);
+        return Math.abs(p1point - p2point);
     }
 }

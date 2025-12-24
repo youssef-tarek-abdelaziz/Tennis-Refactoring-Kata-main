@@ -73,6 +73,8 @@ public class TennisGame2 implements TennisGame
         return (P1point > P2point && P2point >= 3) || (P2point > P1point && P1point >= 3);
     }
     private boolean isWin() {
-        return (P1point >= 4 && (P1point - P2point) >= 2) || (P2point >= 4 && (P2point - P1point) >= 2);
+        boolean isFourAtLeast = P1point >= 4 || P2point >= 4;
+        int difference = Math.abs(P1point - P2point);
+        return isFourAtLeast && difference >= 2;
     }
 }

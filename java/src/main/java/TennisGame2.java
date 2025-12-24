@@ -104,7 +104,7 @@ public class TennisGame2 implements TennisGame
         
         for (int i = 0; i < number; i++)
         {
-            P1Score();
+            IncP1Score();
         }
             
     }
@@ -113,23 +113,23 @@ public class TennisGame2 implements TennisGame
         
         for (int i = 0; i < number; i++)
         {
-            P2Score();
+            IncP2Score();
         }
             
     }
     
-    public void P1Score(){
+    public void IncP1Score(){
         P1point++;
     }
     
-    public void P2Score(){
+    public void IncP2Score(){
         P2point++;
     }
 
     public void wonPoint(String player) {
         if (player.equals(player1Name))
-            P1Score();
+            IncP1Score();
         else
-            P2Score();
+            IncP2Score();
     }
 }

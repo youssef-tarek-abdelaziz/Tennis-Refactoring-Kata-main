@@ -20,23 +20,19 @@ public class TennisGame2 implements TennisGame
         String score = "";
 
         if (isEqualScores()) {
-            if(P1point >= 3) {
+            if(P1point >= 3)
                 score = "Deuce";
-            }
-            else {
+            else
                 score = getPlayerScore(P1point) + "-All";
-            }
         }
         else {
-            score = getPlayerScore(P1point) + "-" + getPlayerScore(P2point);
-        }
-        
-        if (!isEqualScores()) {
-            if(isAdvantage())
-                score = "Advantage " + getPlayerName();
             if(isWin())
                 score = "Win for " + getPlayerName();
+            else if(isAdvantage())
+                score = "Advantage " + getPlayerName();
+            else score = getPlayerScore(P1point) + "-" + getPlayerScore(P2point);
         }
+
         return score;
     }
 

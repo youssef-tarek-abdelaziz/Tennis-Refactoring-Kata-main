@@ -20,7 +20,7 @@ public class TennisGame2 implements TennisGame
         String score = "";
 
         if (isEqualScores()) {
-            if(P1point >= 3)
+            if(isDeuce())
                 score = "Deuce";
             else
                 score = getPlayerScore(P1point) + "-All";
@@ -28,20 +28,7 @@ public class TennisGame2 implements TennisGame
         else {
             score = getCurrentScore();
         }
-
         return score;
-    }
-
-    private String getCurrentScore() {
-        if(isWin())
-            return "Win for " + getPlayerName();
-        else if(isAdvantage())
-            return "Advantage " + getPlayerName();
-        else return getPlayerScore(P1point) + "-" + getPlayerScore(P2point);
-    }
-
-    private boolean isEqualScores() {
-        return P1point == P2point;
     }
 
     public void wonPoint(String player) {
@@ -58,6 +45,22 @@ public class TennisGame2 implements TennisGame
         scores.put(1, "Fifteen");
         scores.put(2, "Thirty");
         scores.put(3, "Forty");
+    }
+
+    private boolean isDeuce() {
+        return P1point >= 3;
+    }
+
+    private String getCurrentScore() {
+        if(isWin())
+            return "Win for " + getPlayerName();
+        else if(isAdvantage())
+            return "Advantage " + getPlayerName();
+        else return getPlayerScore(P1point) + "-" + getPlayerScore(P2point);
+    }
+
+    private boolean isEqualScores() {
+        return P1point == P2point;
     }
 
     private String getPlayerScore(int score) {

@@ -50,9 +50,9 @@ public class TennisGame2 implements TennisGame
 
     private String getCurrentScore() {
         if(isWin())
-            return "Win for " + getPlayerName();
+            return "Win for " + getWinnerPlayerName();
         else if(isAdvantage())
-            return "Advantage " + getPlayerName();
+            return "Advantage " + getWinnerPlayerName();
         else return getPlayerScore(p1point) + "-" + getPlayerScore(p2point);
     }
 
@@ -70,7 +70,7 @@ public class TennisGame2 implements TennisGame
     private void IncP2Score(){
         p2point++;
     }
-    private String getPlayerName() {
+    private String getWinnerPlayerName() {
         return p1point > p2point ? player1Name : player2Name;
     }
     private boolean isAdvantage() {

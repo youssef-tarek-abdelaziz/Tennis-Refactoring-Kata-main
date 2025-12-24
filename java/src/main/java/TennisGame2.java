@@ -71,12 +71,15 @@ public class TennisGame2 implements TennisGame
     }
     private boolean isAdvantage() {
         boolean isMinScoreAtLeastThree = Math.min(P1point, P2point) >= 3;
-        int difference = Math.abs(P1point - P2point);
+        int difference = getAbsDifference();
         return isMinScoreAtLeastThree && difference == 1;
     }
     private boolean isWin() {
         boolean isFourAtLeast = P1point >= 4 || P2point >= 4;
-        int difference = Math.abs(P1point - P2point);
+        int difference = getAbsDifference();
         return isFourAtLeast && difference >= 2;
+    }
+    private int getAbsDifference() {
+        return Math.abs(P1point - P2point);
     }
 }

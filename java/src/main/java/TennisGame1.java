@@ -21,8 +21,24 @@ public class TennisGame1 implements TennisGame {
     public String getScore() {
         String score = "";
         int tempScore=0;
-        if (m_score1==m_score2) {
-            score = getEqualityScore();
+        if (m_score1==m_score2)
+        {
+            switch (m_score1) {
+                case 0:
+                    score = "Love-All";
+                    break;
+                case 1:
+                    score = "Fifteen-All";
+                    break;
+                case 2:
+                    score = "Thirty-All";
+                    break;
+                default:
+                    score = "Deuce";
+                    break;
+
+
+            }
         }
         else if (m_score1>=4 || m_score2>=4)
         {
